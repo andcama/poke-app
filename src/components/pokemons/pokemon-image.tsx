@@ -8,9 +8,7 @@ interface Props {
     isVisible?: boolean;
 }
 
-
 export const PokemonImage = component$(({ id, size = 200, backImage = false, isVisible = true }: Props) => {
-
 
     const imageLoaded = useSignal(false);
 
@@ -30,9 +28,9 @@ export const PokemonImage = component$(({ id, size = 200, backImage = false, isV
             {!imageLoaded.value && (<span>Cargando...</span>)}
 
             <img src={imageUrl.value} alt="pokemon sprite" style={{ width: `${size}px` }} onLoad$={() => {
-             //   setTimeout(() => {
+            
                     imageLoaded.value = true;
-           //     }, 1000)
+         
             }}
                 class={[{
                     'hidden': !imageLoaded.value,
